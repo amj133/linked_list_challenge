@@ -34,6 +34,39 @@ class LinkedListTest < Minitest::Test
     assert_equal 1, list.count
   end
 
+  def test_to_s_returns_data_as_string
+    list = LinkedList.new
+
+    list.append(5)
+
+    assert_equal "5", list.to_s
+  end
+
+  def test_append_works_for_multiple
+    list = LinkedList.new
+
+    list.append(5)
+    list.append(4)
+
+    assert_equal 4, list.head.next_node.data
+    assert_nil list.head.next_node.next_node
+    assert_equal 2, list.count
+    assert_equal "54", list.to_s
+  end
+
+  def test_prepend_works
+    list = LinkedList.new
+
+    list.append(5)
+    list.append(4)
+
+    assert_equal 3, list.prepend(3)
+    assert_equal 3, list.head.data
+    assert_equal 4, list.head.next_node.next_node.data
+    assert_equal 3, list.count
+    assert_equal "354", list.to_s
+  end
+
 end
 
 # > require "./lib/linked_list"
