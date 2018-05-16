@@ -38,6 +38,13 @@ class LinkedList
     popped
   end
 
+  def shift
+    old_head = head
+    new_head = old_head.next_node
+    @head = new_head
+    old_head.data
+  end
+
   def insert(index, data)
     new_node = Node.new(data)
     if index == 1

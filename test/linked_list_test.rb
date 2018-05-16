@@ -105,6 +105,19 @@ class LinkedListTest < Minitest::Test
     assert_equal "12", list.to_s
   end
 
+  def test_shift_works
+    list = LinkedList.new
+
+    list.append(2)
+    list.append(3)
+    list.prepend(1)
+    shifted = list.shift
+
+    assert_equal 1, shifted
+    assert_equal 2, list.head.data
+    assert_equal "23", list.to_s
+  end
+
 end
 
 # > require "./lib/linked_list"
