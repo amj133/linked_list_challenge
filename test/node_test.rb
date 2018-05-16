@@ -1,37 +1,14 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'pry'
-require './lib/linked_list'
 require './lib/node'
 
-class LinkedListTest < Minitest::Test
+class NodeTest < Minitest::Test
 
   def test_it_exists
-    list = LinkedList.new
+    node = Node.new("hello")
 
-    assert_instance_of LinkedList, list
-  end
-
-  def test_starts_with_head_equal_to_nil
-    list = LinkedList.new
-
-    assert_nil list.head
-  end
-
-  def test_append_returns_node_data
-    list = LinkedList.new
-
-    assert_equal 5, list.append(5)
-    assert_equal 5, list.head.data
-    assert_nil list.head.next_node
-  end
-
-  def test_count_returns_number_of_nodes
-    list = LinkedList.new
-
-    list.append(5)
-
-    assert_equal 1, list.count
+    assert_instance_of Node, node
   end
 
 end
