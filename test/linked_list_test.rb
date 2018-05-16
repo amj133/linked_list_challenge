@@ -118,6 +118,19 @@ class LinkedListTest < Minitest::Test
     assert_equal "23", list.to_s
   end
 
+  def test_sort_works
+    list = LinkedList.new
+
+    list.append(1)
+    list.append(2)
+    list.prepend(3)
+    list.bubble_sort
+
+    assert_equal 1, list.head.data
+    assert_equal 2, list.head.next_node.data
+    assert_equal 3, list.head.next_node.next_node.data
+  end
+
 end
 
 # > require "./lib/linked_list"

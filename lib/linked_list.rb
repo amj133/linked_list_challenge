@@ -92,4 +92,24 @@ class LinkedList
     string
   end
 
+  def bubble_sort
+    data = node_data
+    data.each.with_index do |node_data, index|
+      i = index
+      while node_data < data[i + 1]
+        
+      end
+    end
+  end
+
+  def node_data
+    node_data = []
+    current = head
+    until current.next_node == nil
+      node_data << current.data
+      current = current.next_node
+    end
+    node_data << current.data
+  end
+
 end
