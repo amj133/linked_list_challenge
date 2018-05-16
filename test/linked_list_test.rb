@@ -67,17 +67,17 @@ class LinkedListTest < Minitest::Test
     assert_equal "354", list.to_s
   end
 
-  # def test_insert_works_at_beginning
-  #   list = LinkedList.new
-  #
-  #   list.append(5)
-  #   list.append(4)
-  #   list.prepend(3)
-  #
-  #   assert_equal 8, list.insert(1, 8)
-  #   assert_equal 8, list.head.data
-  #   assert_equal 3, list.head.next_node.data
-  # end
+  def test_insert_works_at_beginning
+    list = LinkedList.new
+
+    list.append(5)
+    list.append(4)
+    list.prepend(3)
+
+    assert_equal 8, list.insert(1, 8)
+    assert_equal 8, list.head.data
+    assert_equal 3, list.head.next_node.data
+  end
 
   def test_insert_works_in_middle
     list = LinkedList.new
@@ -85,10 +85,24 @@ class LinkedListTest < Minitest::Test
     list.append(2)
     list.append(3)
     list.prepend(1)
-    list.insert(3, 12)
+    list.insert(3, 8)
 
     assert_equal 1, list.head.data
-    assert_equal 12, list.head.next_node.next_node.data
+    assert_equal 8, list.head.next_node.next_node.data
+    assert_equal "1283", list.to_s
+  end
+
+  def test_pop_works
+    list = LinkedList.new
+
+    list.append(2)
+    list.append(3)
+    list.prepend(1)
+    popped = list.pop
+
+    assert_equal 3, popped
+    assert_equal 1, list.head.data
+    assert_equal "12", list.to_s
   end
 
 end
