@@ -118,7 +118,7 @@ class LinkedListTest < Minitest::Test
     assert_equal "23", list.to_s
   end
 
-  def test_sort_works
+  def bubble_sort_works
     list = LinkedList.new
 
     list.append(1)
