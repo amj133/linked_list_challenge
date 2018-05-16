@@ -67,6 +67,30 @@ class LinkedListTest < Minitest::Test
     assert_equal "354", list.to_s
   end
 
+  # def test_insert_works_at_beginning
+  #   list = LinkedList.new
+  #
+  #   list.append(5)
+  #   list.append(4)
+  #   list.prepend(3)
+  #
+  #   assert_equal 8, list.insert(1, 8)
+  #   assert_equal 8, list.head.data
+  #   assert_equal 3, list.head.next_node.data
+  # end
+
+  def test_insert_works_in_middle
+    list = LinkedList.new
+
+    list.append(2)
+    list.append(3)
+    list.prepend(1)
+    list.insert(3, 12)
+
+    assert_equal 1, list.head.data
+    assert_equal 12, list.head.next_node.next_node.data
+  end
+
 end
 
 # > require "./lib/linked_list"

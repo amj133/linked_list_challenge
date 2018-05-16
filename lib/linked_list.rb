@@ -23,13 +23,31 @@ class LinkedList
 
   def prepend(data)
     new_node = Node.new(data)
-    old_head = head
     new_node.next_node = head
     @head = new_node
     data
   end
 
-  def find_last_node
+  def insert(index, data)
+    new_node = Node.new(data)
+    if index == 1
+      new_node.next_node = head
+      @head = new_node
+      return data
+    end
+    count = 1
+    left_node = head
+    until count == (index - 1)
+      left_node = left_node.next_node
+      count += 1
+    end
+    right_node = left_node.next_node
+    left_node.next_node = new_node
+    new_node.next_node = right_node
+    data
+  end
+
+  def find_tail
     current = head
     current = current.next_node until current.next_node == nil
     current
